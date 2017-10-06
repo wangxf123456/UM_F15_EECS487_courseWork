@@ -1,0 +1,10 @@
+1. Mac OS X
+
+2. For cube mapping, I assign the coordinate to each vertex one by one, without using loops. Also, when averaging tangent of cube, I calculate the index of the 8 vertices by hand and then average them. There must be some easier way to do this.
+
+3. 
+http://www.cn486.com/3D/tu/6Fish/1024/0001.jpg
+https://cdn.vectorstock.com/i/composite/60,09/water-drops-h2o-shaped--background-vector-1006009.jpg
+http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/
+
+4. This assignment is quite hard. For normal mapping, it is hard for us to determine whether our implementation is correct. Even if my implementation is wrong, it looks very similar with the correct one.

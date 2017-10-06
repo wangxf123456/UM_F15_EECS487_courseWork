@@ -1,0 +1,7 @@
+1. Platform: Max OSX
+
+2. For triangle multi-sampling, I sampled 9 points in each for each pixel instead of 4 points. When determining alpha, if abs(h) == 0.5, this means the line go through the mid point of that pixel so alpha = 1, I just color the original pixel and do nothing more. When h < 0 && h > -0.5, then y is incremented and line is above mid point but below the center of that pixel so alpha = 0.5 + abs(h). When h > 0.5, then y is not incremented and line is below mid point and below the center of that pixel so alpha = 1.5 - h. When h >= 0 and h <= 0.5, then y is not incremented and line is below mid point and above the center of that pixel so alpha = 0.5 + h. When h <= -0.5, then y is incremented and line is above mid point and above the center of that pixel so alpha = 1.5 - abs(h).
+
+3. It is a character in game taiko tatsujin. It is a music game. I used to play this game a lot.
+
+4. Overall this is an amazing programming. It helps us a lot on understanding all topics from the beginning of semester. It also gives a lot of fun by using the program when implemented to draw a scene.

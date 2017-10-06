@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+  <Scene>
+    <Viewpoint description='View tree' orientation='1 0 0 -0.2' position='2 4 15'/>
+    <Timer DEF='timer_slow' shift='0.0' period='5.0'/> 
+    <Timer DEF='timer_fast' shift='0.0' period='0.25'/> 
+    <Timer DEF='timer'/>
+    <PositionInterpolator DEF='jumper' 
+                          key='0 1 2 3 40' 
+                          keyValue='0 0 0, 1 0 0, 1.5 1 0, 0.5 2 0, -0.5 1 0'/>
+    <OrientationInterpolator DEF='rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 -0.785, 1 0 0 0.785, 1 0 0 -0.785'/>
+    <PositionInterpolator DEF='sitter' key='0 0.5 1.0' 
+        keyValue='1 1 1, 1.4 0.3 1.4, 1 1 1' smooth='false'/>
+    <ScalarInterpolator DEF='squeezer' key='0 0.25 0.5 0.75 1.0' 
+        keyValue='2 3 3 2.5 2' smooth='false'/>
+   <Group>
+      <PointLight ambientIntensity='0.05' color='1 1 0.2' intensity='0.3' location='0 10 0'/>
+      <Shape>
+        <Box size='25 0.1 25'/>
+        <Appearance>
+          <Material diffuseColor='0.75 0.75 0.5'/>
+        </Appearance>
+      </Shape>
+      
+	  <Transform translation='1 0.5 3'>
+          <Shape>
+              <Curve>
+                <PositionInterpolator DEF='chris' smooth='false'
+                                      key='0 0 0.25 0.5 0.75 1 1'
+                                      keyValue='
+                                        0 0 0
+                                        0 0 0
+                                        0 5 0
+                                        5 5 0
+                                        5 0 0
+                                        0 0 0
+                                        0 0 0'
+                />
+              </Curve>
+          </Shape>
+          <Transform DEF='red_cyl' translation='0.0 0.0 0.0'>
+            <Shape>
+            <Cylinder radius='0.2' height='0.5'/>
+            <Appearance>
+                <Material diffuseColor='0.2 0.2 0' emissiveColor='0.8 0.2 0.2'/>
+            </Appearance>
+            </Shape>
+            <PointLight ambientIntensity='0.9' 
+                        attenuation='1 0.21 0' 
+                        color='1 0.4 0.2' intensity='0.9' 
+                        location='0 0 0'/>
+          </Transform>
+          <Link TIMER='timer_slow' INTERPOLATOR='chris' 
+                TO_NODE='red_cyl' TO_FIELD='translation'/>
+	  </Transform>
+		
+      <Transform center='0 -1 0' translation='0 1 0'>
+        <Shape>
+          <Cylinder radius='0.2'/>
+          <Appearance>
+            <Material diffuseColor='0.2 0.2 0' specularColor='0.8 0.2 0.5'/>
+          </Appearance>
+        </Shape>
+        <Transform translation='0 0 4'>
+            <Transform DEF='squish' scale='1 1 1' center='0 -1 0'>
+                <Shape>
+                <Cylinder radius='0.2'/>
+                <Appearance>
+                    <Material diffuseColor='0.0 0.4 0'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+        </Transform>
+        <Transform DEF='pendulum' translation='4 0 4' rotation='0 0 1 0.8' center='0 -1 0'>
+        <Shape>
+          <Cylinder radius='0.2'/>
+          <Appearance>
+            <Material ambientIntensity='0.4' diffuseColor='0.22 0.15 0' shininess='0.16' specularColor='0.71 0.70 0.56'/>
+	      </Appearance>
+	     </Shape>
+            <Transform translation='0 2 0' rotation='0 1 0 1.6'>
+                <Transform DEF='pend2' center='0 -1 0'>
+                    <Shape>
+                        <Cylinder radius='0.15'/>
+                    </Shape>
+                </Transform>
+            </Transform>
+        </Transform>
+        <Link TIMER='timer_slow' 
+              INTERPOLATOR='rotator' 
+              TO_NODE='pendulum' TO_FIELD='rotation'/>
+        <Link TIMER='timer_slow' 
+              INTERPOLATOR='sitter' 
+              TO_NODE='squish' TO_FIELD='scale'/>
+        <Link TIMER='timer_fast' 
+              INTERPOLATOR='rotator' 
+              TO_NODE='pend2' TO_FIELD='rotation'/>
+        <Transform translation='0 3 0'>
+          <Shape>
+            <Cone DEF='treecone' bottomRadius='2' height='4'/>
+            <Appearance>
+              <Material diffuseColor='0.1 0.8 0'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+      </Transform>
+    </Group>
+    <Link TIMER='timer_slow' 
+          INTERPOLATOR='squeezer' 
+          TO_NODE='treecone' TO_FIELD='bottomRadius'/>
+  </Scene>
+</X3D>

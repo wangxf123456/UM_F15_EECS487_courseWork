@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version='3.0' profile='Immersive' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <head>
+    <meta content='DeskLamp.x3d' name='title'/>
+    <meta content='A file decribing a desk lamp' name='description'/>
+    <meta content='Frederic Roussille' name='creator'/>
+    <meta content='1 April 2001' name='created'/>
+    <meta content='20 October 2002' name='modified'/>
+    <meta content='http://www.web3d.org/x3d/content/examples/Basic/StudentProjects/DeskLamp.x3d' name='identifier'/>
+    <meta content='X3D-Edit, http://www.web3d.org/x3d/content/README.X3D-Edit.html' name='generator'/>
+    <meta name='license' content='../../license.html'/>
+  </head>
+  <Scene>
+    <Viewpoint description='DeskLamp' position='0.2 0.4 1'/>
+    <Group>
+      <PlaneSensor DEF='movelamp' description='click and drag to move lamp'/>
+      <Transform DEF='lamp'>
+        <Shape>
+          <Appearance>
+            <Material DEF='color' diffuseColor='0.8 0 0.6'/>
+          </Appearance>
+          <Cylinder height='0.01' radius='0.1'/>
+        </Shape>
+        <Group>
+          <SphereSensor DEF='movefirstarm' description='click and drag to move arm' offset='1 0 0 -3.58'/>
+          <Transform DEF='firstarm' center='0 -0.15 0' rotation='1 0 0 -0.7' translation='0 0.15 0'>
+            <Shape DEF='lamparm'>
+              <Appearance>
+                <Material USE='color'/>
+              </Appearance>
+              <Cylinder height='0.3' radius='0.01'/>
+            </Shape>
+            <Group>
+              <SphereSensor DEF='movesecondarm' description='click and drag to move arm' offset='1 0 0 -1.25'/>
+              <Transform DEF='secondarm' center='0 -0.15 0' rotation='1 0 0 1.9' translation='0 0.3 0'>
+                <Shape USE='lamparm'/>
+                <Group>
+                  <SphereSensor DEF='movelampshade' description='click and drag to move shade' offset='1 0 0 -1.25'/>
+                  <Transform DEF='lampshade' center='0 0.075 0' rotation='1 0 0 -1.25' translation='0 0.075 0'>
+                    <Shape>
+                      <Appearance>
+                        <Material USE='color'/>
+                      </Appearance>
+                      <Cone bottom='false' bottomRadius='0.12' height='0.15'/>
+                    </Shape>
+                    <Transform translation='0 -0.05 0'>
+                      <Shape>
+                        <Appearance>
+                          <Material DEF='color2' diffuseColor='0.4 0.4 0.4'/>
+                        </Appearance>
+                        <Sphere radius='0.05'/>
+                      </Shape>
+                      <TimeSensor DEF='clock1' cycleInterval='0.5'/>
+                      <ColorInterpolator DEF='colorpath1' key='0, 1' keyValue='0.4 0.4 0.4, 1 1 0'/>
+                      <ColorInterpolator DEF='colorpath2' key='0, 1' keyValue='1 1 0, 0.4 0.4 0.4'/>
+                      <TimeSensor DEF='clock2' cycleInterval='0.5'/>
+                      <SpotLight DEF='light' ambientIntensity='.8' beamWidth='.785398' color='1 1 0' cutOffAngle='.785398' direction='0 -1 0.7' on='false' radius='20'/>
+                    </Transform>
+                  </Transform>
+                </Group>
+              </Transform>
+            </Group>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform DEF='button1' translation='-0.02 0.015 0.05'>
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='1 0 0'/>
+              </Appearance>
+              <Cylinder height='0.03' radius='0.01'/>
+            </Shape>
+            <TouchSensor DEF='touch1' description='click to turn on'/>
+            <Script DEF='code1'>
+              <field accessType='outputOnly' name='value' type='SFBool'/>
+              <field accessType='inputOnly' name='set_light' type='SFTime'/>
+              <![CDATA[ecmascript:
+function set_light() {
+ value = TRUE;
+}]]>
+            </Script>
+          </Transform>
+          <Transform DEF='button2' translation='0.02 0.015 0.05'>
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='0 0 1'/>
+              </Appearance>
+              <Cylinder height='0.03' radius='0.01'/>
+            </Shape>
+            <TouchSensor DEF='touch2' description='click to turn off'/>
+            <Script DEF='code2'>
+              <field accessType='outputOnly' name='value' type='SFBool'/>
+              <field accessType='inputOnly' name='set_light' type='SFTime'/>
+              <![CDATA[ecmascript:
+function set_light() {
+ value = FALSE;
+}]]>
+            </Script>
+          </Transform>
+        </Group>
+      </Transform>
+    </Group>
+    <ROUTE fromField='translation_changed' fromNode='movelamp' toField='set_translation' toNode='lamp'/>
+    <ROUTE fromField='rotation_changed' fromNode='movefirstarm' toField='set_rotation' toNode='firstarm'/>
+    <ROUTE fromField='rotation_changed' fromNode='movesecondarm' toField='set_rotation' toNode='secondarm'/>
+    <ROUTE fromField='rotation_changed' fromNode='movelampshade' toField='set_rotation' toNode='lampshade'/>
+    <ROUTE fromField='touchTime' fromNode='touch1' toField='set_startTime' toNode='clock1'/>
+    <ROUTE fromField='fraction_changed' fromNode='clock1' toField='set_fraction' toNode='colorpath1'/>
+    <ROUTE fromField='value_changed' fromNode='colorpath1' toField='set_emissiveColor' toNode='color2'/>
+    <ROUTE fromField='touchTime' fromNode='touch2' toField='set_startTime' toNode='clock2'/>
+    <ROUTE fromField='fraction_changed' fromNode='clock2' toField='set_fraction' toNode='colorpath2'/>
+    <ROUTE fromField='value_changed' fromNode='colorpath2' toField='set_emissiveColor' toNode='color2'/>
+    <ROUTE fromField='touchTime' fromNode='touch1' toField='set_light' toNode='code1'/>
+    <ROUTE fromField='value' fromNode='code1' toField='set_on' toNode='light'/>
+    <ROUTE fromField='touchTime' fromNode='touch2' toField='set_light' toNode='code2'/>
+    <ROUTE fromField='value' fromNode='code2' toField='set_on' toNode='light'/>
+  </Scene>
+</X3D>

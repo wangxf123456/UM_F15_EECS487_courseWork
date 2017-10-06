@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version='3.0' profile='Interactive' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <head>
+    <meta content='Figure03.01DefaultBox.x3d' name='title'/>
+    <meta content='Figure 3.1, The VRML 2.0 Sourcebook, Copyright [1997] By Andrea L. Ames, David R. Nadeau, and John L. Moreland' name='creator'/>
+    <meta content='Don Brutzman' name='translator'/>
+    <meta content='6 August 2000' name='created'/>
+    <meta content='10 January 2005' name='modified'/>
+    <meta content='Default Box.' name='description'/>
+    <meta content='http://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook/Chapter03-Shapes/Figure03.01DefaultBox.x3d' name='identifier'/>
+    <meta content='X3D-Edit, http://www.web3d.org/x3d/content/README.X3D-Edit.html' name='generator'/>
+    <meta name='license' content='../../license.html'/>
+  </head>
+  <Scene>
+    <!-- This NavigationInfo node is added to many scenes, making examination of objects easier. -->
+    <Shape>
+      <!-- When attribute values are not specified, the default values from the X3D (or VRML) Specification are used. -->
+      <Appearance>
+        <Material diffuseColor='.2 .8 .4'/>
+      </Appearance>
+      <Box/>
+    </Shape>
+  </Scene>
+</X3D>

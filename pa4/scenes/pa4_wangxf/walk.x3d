@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+  <Scene>
+    <Viewpoint description='View tree' orientation='1 0 0 -0.2' position='2 4 15'/>
+    <Timer DEF='timer_slow' shift='0.0' period='5.0'/> 
+    <Timer DEF='timer_fast' shift='0.0' period='1.0'/> 
+    <Timer DEF='timer'/>
+    <PositionInterpolator DEF='jumper' 
+                          key='0 1 2 3 40' 
+                          keyValue='0 0 0, 1 0 0, 1.5 1 0, 0.5 2 0, -0.5 1 0'/>
+    <OrientationInterpolator DEF='left_arm_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 -0.785, 1 0 0 0.785, 1 0 0 -0.785'/>    
+    <OrientationInterpolator DEF='right_arm_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 0.785, 1 0 0 -0.785, 1 0 0 0.785'/>
+    <OrientationInterpolator DEF='head_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='0 1 0 0.3, 0 1 0 -0.3, 0 1 0 0.3'/>
+    <OrientationInterpolator DEF='body_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='0 1 0 -0.3, 0 1 0 0.3, 0 1 0 -0.3'/>
+
+    <OrientationInterpolator DEF='left_leg_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 -0.8, 1 0 0 0, 1 0 0 -0.8'/>
+    <OrientationInterpolator DEF='left_lower_leg_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 1.2, 1 0 0 0, 1 0 0 1.2'/>
+
+    <OrientationInterpolator DEF='right_lower_leg_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 0, 1 0 0 1.2, 1 0 0 0'/>
+    <OrientationInterpolator DEF='right_leg_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 0, 1 0 0 -0.8, 1 0 0 0'/>
+
+    <OrientationInterpolator DEF='left_foot_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 0.4, 1 0 0 0, 1 0 0 0.4'/>
+    <OrientationInterpolator DEF='right_foot_rotator' 
+                          key='0 0.5 1' 
+                          keyValue='1 0 0 0, 1 0 0 0.4, 1 0 0 0'/>
+   <Group>
+      <PointLight ambientIntensity='0.05' color='1 1 0.2' intensity='0.3' location='0 10 0'/>
+      <Transform translation='0 -0.55 0'>
+      <Shape>
+        <Box size='25 1 25'/>
+        <Appearance>
+          <ImageTexture containerField="texture" url="&quot;grass.jpg&quot;"/>
+        </Appearance>
+      </Shape>
+      </Transform>
+      <Transform translation='0 20 -20'>
+      <Shape>
+        <Box size='50 50 0.1'/>
+        <Appearance>
+          <ImageTexture containerField="texture" url="&quot;castal.jpg&quot;"/>
+        </Appearance>
+      </Shape>
+      </Transform>
+
+	  <Transform translation='1 0.5 3'>
+          <PositionInterpolator DEF='move' smooth='true'
+                                key='0 0 0.25 0.5 0.75 1 1'
+                                keyValue='
+                                  0 0 -10
+                                  0 0 -10 
+                                  0 0 -5 
+                                  0 0 0
+                                  0 0 5 
+                                  0 0 10 
+                                  0 0 10 '
+          />  
+          <PointLight ambientIntensity='0.9' 
+                      attenuation='1 0.21 0' 
+                      color='1 0.4 0.2' intensity='0.9' 
+                      location='0 0 0'/>
+          <Transform DEF='people' translation='0.0 0.1 0.0'>
+            <Transform DEF='body' translation='0.0 1.05 0.0'>
+              <Shape>
+              <Box size='1.0 1.2 0.3'/>
+              <Appearance>
+                  <ImageTexture containerField="texture" url="&quot;armor.png&quot;"/>
+              </Appearance>
+              </Shape>
+            </Transform>
+            <Transform DEF='left_arm' translation='0.6 1.4 0.0' rotation='0 1 0 0.5'>
+              <Transform DEF='upper_arm' translation='0.0 0.0 0.0' rotation='0 0 0 0'>
+                <Shape>
+                <Box size='0.2 0.5 0.2'/>
+                <Appearance>
+                    <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+              </Transform>
+              <Transform DEF='lower_arm' translation='0.0 -0.5 0.1' rotation='1 1.0 0 -0.5'>
+                <Shape>
+                <Box size='0.2 0.5 0.2'/>
+                <Appearance>
+                    <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+              </Transform>
+            </Transform>
+
+            <Transform DEF='right_arm' translation='-0.6 1.4 0.0' rotation='0 1 0 0.5'>
+              <Transform DEF='upper_arm' translation='0.0 0.0 0.0' rotation='0 0 0 0'>
+                <Shape>
+                <Box size='0.2 0.5 0.2'/>
+                <Appearance>
+                    <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+              </Transform>
+              <Transform DEF='lower_arm' translation='0.0 -0.5 0.1' rotation='1 1.0 0 -0.5'>
+                <Shape>
+                <Box size='0.2 0.5 0.2'/>
+                <Appearance>
+                    <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+              </Transform>
+            </Transform>
+
+            <Transform DEF='left_leg' translation = '0.3 -0.05 0' center='0 0.5 0'>
+              <Transform DEF='left_upper_leg' translation='0 0.25 0'>
+                <Shape>
+                <Cylinder radius='0.05' height='0.5'/>
+                <Appearance containerField="appearance">
+                  <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+              </Transform>
+              <Transform DEF='left_lower_leg' translation='0 -0.25 0' center='0 0.25 0'>
+                <Shape>
+                <Cylinder radius='0.05' height='0.5'/>
+                <Appearance containerField="appearance">
+                  <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+                <Transform DEF='left_foot' translation='0 -0.25 0.15' center='0 0 0.15'>
+                  <Shape>
+                  <Box size='0.2 0.1 0.3'/>
+                  <Appearance containerField="appearance">
+                    <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                  </Appearance>
+                  </Shape>
+                </Transform>
+              </Transform>
+
+              <Link TIMER='timer_fast' INTERPOLATOR='left_leg_rotator' 
+                  TO_NODE='left_leg' TO_FIELD='rotation'/>
+              <Link TIMER='timer_fast' INTERPOLATOR='left_lower_leg_rotator' 
+                  TO_NODE='left_lower_leg' TO_FIELD='rotation'/>
+              <Link TIMER='timer_fast' INTERPOLATOR='left_foot_rotator' 
+                  TO_NODE='left_foot' TO_FIELD='rotation'/>
+            </Transform>
+
+            <Transform DEF='right_leg' translation = '-0.3 -0.05 0' center='0 0.5 0'>
+              <Transform DEF='right_upper_leg' translation='0 0.25 0'>
+                <Shape>
+                <Cylinder radius='0.05' height='0.5'/>
+                <Appearance containerField="appearance">
+                  <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+              </Transform>
+              <Transform DEF='right_lower_leg' translation='0 -0.25 0' center='0 0.25 0'>
+                <Shape>
+                <Cylinder radius='0.05' height='0.5'/>
+                <Appearance containerField="appearance">
+                  <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                </Appearance>
+                </Shape>
+                <Transform DEF='right_foot' translation='0 -0.25 0.15' center='0 0 0.15'>
+                  <Shape>
+                  <Box size='0.2 0.1 0.3'/>
+                  <Appearance containerField="appearance">
+                    <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+                  </Appearance>
+                  </Shape>
+                </Transform>
+              </Transform>
+
+              <Link TIMER='timer_fast' INTERPOLATOR='right_leg_rotator' 
+                  TO_NODE='right_leg' TO_FIELD='rotation'/>
+              <Link TIMER='timer_fast' INTERPOLATOR='right_lower_leg_rotator' 
+                  TO_NODE='right_lower_leg' TO_FIELD='rotation'/>
+              <Link TIMER='timer_fast' INTERPOLATOR='right_foot_rotator' 
+                  TO_NODE='right_foot' TO_FIELD='rotation'/>
+            </Transform>
+
+            <Transform translation = '0 1.7 0'>
+              <Shape>
+              <Cylinder radius='0.1' height='0.2'/>
+              <Appearance>
+                  <ImageTexture containerField="texture" url="&quot;steel.jpg&quot;"/>
+              </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform DEF='head' translation = '0 2.0 0'>
+              <Shape>
+              <Cylinder radius='0.3' height='0.4'/>
+              <Appearance containerField="appearance">
+                <ImageTexture containerField="texture" url="&quot;cylhead.jpg&quot;"/>
+              </Appearance>
+              </Shape>
+            </Transform>
+
+            <Link TIMER='timer_fast' INTERPOLATOR='left_arm_rotator' 
+                  TO_NODE='left_arm' TO_FIELD='rotation'/>
+            <Link TIMER='timer_fast' INTERPOLATOR='right_arm_rotator' 
+                  TO_NODE='right_arm' TO_FIELD='rotation'/>
+            <Link TIMER='timer_fast' INTERPOLATOR='head_rotator' 
+                  TO_NODE='head' TO_FIELD='rotation'/>
+            <Link TIMER='timer_fast' INTERPOLATOR='body_rotator' 
+                  TO_NODE='body' TO_FIELD='rotation'/>
+          </Transform>
+          <Link TIMER='timer_slow' INTERPOLATOR='move' 
+                TO_NODE='people' TO_FIELD='translation'/>
+	  </Transform>
+		
+    </Group>
+  </Scene>
+</X3D>

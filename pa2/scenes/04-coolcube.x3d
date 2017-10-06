@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version='3.0' profile='Immersive' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <head>
+    <meta content='Figure13.12IndexedFaceSetCube.x3d' name='title'/>
+    <meta content='Figure 13.12, The VRML 2.0 Sourcebook, Copyright [1997] By Andrea L. Ames, David R. Nadeau, and John L. Moreland' name='creator'/>
+    <meta content='Don Brutzman' name='transcriber'/>
+    <meta content='21 May 2001' name='created'/>
+    <meta content='3 January 2004' name='modified'/>
+    <meta content='A simple solid cube drawn with IndexedFaceSet.' name='description'/>
+    <meta content='http://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook/Chapter13-PointsLinesFaces/Figure13.12IndexedFaceSetCube.x3d' name='identifier'/>
+    <meta content='X3D-Edit, http://www.web3d.org/x3d/content/README.X3D-Edit.html' name='generator'/>
+    <meta name='license' content='../../license.html'/>
+  </head>
+  <Scene>
+    <Viewpoint description='5m away' position='0 0 5'/>
+    <Group>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0 0.5 1'/>
+        </Appearance>
+        <IndexedFaceSet coordIndex='0, 1, 2, 3, -1,&#10;7, 6, 5, 4, -1, &#10;0, 4, 5, 1, -1,&#10;1, 5, 6, 2, -1,&#10;2, 6, 7, 3, -1,&#10;3, 7, 4, 0'>
+          <Coordinate point='-1.0  1.0  1.0,&#10; 1.0  1.0  1.0,&#10; 1.0  1.0 -1.0,&#10;-1.0  1.0 -1.0,&#10;-1.0 -1.0  1.0,&#10; 1.0 -1.0  1.0,&#10; 1.0 -1.0 -1.0,&#10;-1.0 -1.0 -1.0'/>
+        </IndexedFaceSet>
+      </Shape>
+    </Group>
+  </Scene>
+</X3D>

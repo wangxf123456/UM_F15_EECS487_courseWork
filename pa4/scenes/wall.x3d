@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version='3.0' profile='Immersive' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <head>
+    <meta content='Figure18.22bTextureCoordinateVideoWall.x3d' name='title'/>
+    <meta content='Figure 18.22b, The VRML 2.0 Sourcebook, Copyright [1997] By Andrea L. Ames, David R. Nadeau, and John L. Moreland' name='creator'/>
+    <meta content='Don Brutzman' name='translator'/>
+    <meta content='4 September 2000' name='created'/>
+    <meta content='15 September 2002' name='modified'/>
+    <meta content='A four-screen video wall, each screen created by stamping out one fourth of a mountain texture image and using a TextureTransform node to translate the texture cookie cutter.' name='description'/>
+    <meta content='http://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook/Chapter18-TextureMapping/Figure18.22bTextureCoordinateVideoWall.x3d' name='identifier'/>
+    <meta content='X3D-Edit, http://www.web3d.org/x3d/content/README.X3D-Edit.html' name='generator'/>
+    <meta name='license' content='../../license.html'/>
+  </head>
+  <Scene>
+    <Viewpoint description='Transformed texture window' position='1.05 1.05 3'/>
+    <Group>
+      <Shape>
+        <Appearance>
+          <!-- no material, use emissive texturing. Not really a video, just a .jpg image. -->
+          <ImageTexture DEF='Video' url='"grand.jpg"&#xA;"http://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook/Chapter18-TextureMapping/grand.jpg"'/>
+        </Appearance>
+        <IndexedFaceSet DEF='Screen' coordIndex='0, 1, 2, 3' solid='false' texCoordIndex='0, 1, 2, 3'>
+          <Coordinate point='0 0 0,  1 0 0,  1 1 0,  0 1 0'/>
+          <TextureCoordinate point='0 0,  0.5 0,  0.5 0.5,  0 0.5'/>
+        </IndexedFaceSet>
+      </Shape>
+      <Transform translation='1.1 0 0'>
+        <Shape>
+          <Appearance>
+            <!-- no material, use emissive texturing -->
+            <ImageTexture USE='Video'/>
+            <TextureTransform translation='0.5 0' scale='1 1'/>
+          </Appearance>
+          <IndexedFaceSet USE='Screen'/>
+        </Shape>
+      </Transform>
+      <Transform translation='0 1.1 0'>
+        <Shape>
+          <Appearance>
+            <ImageTexture USE='Video'/>
+            <TextureTransform translation='0 0.5' scale='1 1'/>
+          </Appearance>
+          <IndexedFaceSet USE='Screen'/>
+        </Shape>
+      </Transform>
+      <Transform translation='1.1 1.1 0'>
+        <Shape>
+          <Appearance>
+            <ImageTexture USE='Video'/>
+            <TextureTransform translation='0.5 0.5' scale='1 1'/>
+          </Appearance>
+          <IndexedFaceSet USE='Screen'/>
+        </Shape>
+      </Transform>
+    </Group>
+  </Scene>
+</X3D>

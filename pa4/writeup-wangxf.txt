@@ -1,0 +1,3 @@
+1. Mac OSX
+2. For task 5, since Catmull-Rom spline does not interpolate between the first two points and the last two points, I used linear interpolation when time is between these two points. For task 6, it looks like my character's leg is quite far away from its body. But actually it is close enough to its body, it looks like this because I used a texture with transparent color on its border as the body.
+3. This is a fantastic project assignment. But it does not cover on the course materials after splines. I think it would be better to give us more practice on quaternion, subdivision surfaces, materials after splines.

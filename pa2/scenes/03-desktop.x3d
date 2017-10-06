@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version='3.0' profile='Immersive' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <head>
+    <meta content='Figure07.12aSimpleTree.x3d' name='title'/>
+    <meta content='Figure 7.12, The VRML 2.0 Sourcebook, Copyright [1997] By Andrea L. Ames, David R. Nadeau, and John L. Moreland' name='creator'/>
+    <meta content='Don Brutzman' name='transcriber'/>
+    <meta content='9 October 2000' name='created'/>
+    <meta content='15 September 2002' name='modified'/>
+    <meta content='A tree at its original size.  Compare Figures 7.12a, 7.12b and 7.13.' name='description'/>
+    <meta content='http://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook/Chapter07-ScalingShapes/Figure07.12aSimpleTree.x3d' name='identifier'/>
+    <meta content='X3D-Edit, http://www.web3d.org/x3d/content/README.X3D-Edit.html' name='generator'/>
+    <meta name='license' content='../../license.html'/>
+  </head>
+  <Scene>
+    <Viewpoint description='View tree' orientation='1 0 0 -0.2' position='-3 3 5'/>
+    <Group>
+      <PointLight ambientIntensity='0.1' color='1 1 0.2' intensity='0.2' location='0 10 0'/>
+      <Shape>
+        <Box size='25 0.1 25'/>
+        <Appearance>
+          <Material diffuseColor='0.75 0.75 0.5'/>
+        </Appearance>
+      </Shape>
+      
+	  <Transform translation='1 0.5 3'>
+		<Shape>
+		<Cylinder radius='0.2' height='0.5'/>
+		<Appearance>
+			<Material diffuseColor='0.2 0.2 0' emissiveColor='0.8 0.2 0.2'/>
+		</Appearance>
+		</Shape>
+	  </Transform>
+		
+      <Transform center='0 -1 0' translation='0 1 0'>
+        <Shape>
+          <Cylinder radius='0.2'/>
+          <Appearance>
+            <Material diffuseColor='0.2 0.2 0' specularColor='0.8 0.2 0.5'/>
+          </Appearance>
+        </Shape>
+        <Transform translation='0 0 4'>
+            <PointLight ambientIntensity='0.9' attenuation='0 0.6 0' color='1 0.4 0.2' intensity='0.9' location='0 0 0'/>
+			<Shape>
+			<Cylinder radius='0.2'/>
+			<Appearance>
+				<Material diffuseColor='0.0 0.4 0'/>
+			</Appearance>
+			</Shape>
+        </Transform>
+        <Transform translation='4 0 4' rotation='0 0 1 0.8' center='0 -1 0'>
+			<Shape>
+			<Cylinder radius='0.2'/>
+			<Appearance>
+	          <Material ambientIntensity='0.4' diffuseColor='0.22 0.15 0' shininess='0.16' specularColor='0.71 0.70 0.56'/>
+			</Appearance>
+			</Shape>
+        </Transform>
+        <Transform translation='0 3 0'>
+          <Shape>
+            <Cone bottomRadius='2' height='4'/>
+            <Appearance>
+              <Material diffuseColor='0.1 0.8 0'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+      </Transform>
+    </Group>
+  </Scene>
+</X3D>

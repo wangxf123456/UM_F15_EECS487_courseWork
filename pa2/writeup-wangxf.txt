@@ -1,0 +1,5 @@
+1. Platform: Max OSX
+
+2. When implementing phong shaders and blinn shaders, I define a MAX_LIGHT variable which equals to 20. This is used to define the array holding light vectors for each light source. If there are more than 20 lights, the program may have weired behaviors.
+
+3. Overall this is an amazing programming. It helps us a lot on understanding shaders, transformation and light. It also gives a lot of fun by implementing a funny shader.
